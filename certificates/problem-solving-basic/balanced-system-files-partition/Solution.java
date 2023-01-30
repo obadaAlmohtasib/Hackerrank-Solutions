@@ -42,6 +42,11 @@ public class Solution {
                 min = Math.abs(sums[i] - diff[i]);   
             }
         }
+        
+        // We can cleaning the above two loop by combining the loop operation in one statement, Since the Diff[i] = sums[0] - sums[i];
+        // for (int i=0; i<sums.length; i++) {
+        //     min = Math.min(Math.abs(sums[0] - sums[i]*2), min);   
+        // }
         return min;
     }
     
