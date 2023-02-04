@@ -16,10 +16,8 @@ public class Solution {
         Map<Integer, Integer[]> dict = new HashMap<>();
         int minOps = Integer.MAX_VALUE;
         
-        for (Integer i: arr) {
-            
-            int steps = 0;
-            
+        for (Integer i: arr) {            
+            int steps = 0;            
             // Pre-check to avoid re-initialize for duplicate numbers
             if (dict.get(i) == null)
                 dict.put(i, new Integer[] { 1, steps });
@@ -28,17 +26,13 @@ public class Solution {
                 dict.get(i)[1]+=steps; // minimum number of operations
             }
             
-            while (true) {
-                
+            while (true) {                
                 if (dict.get(i)[0] == threshold)
-                    minOps = Math.min(dict.get(i)[1], minOps);
-                
+                    minOps = Math.min(dict.get(i)[1], minOps);                
                 if (i == 0)
-                    break;
-                    
+                    break;                    
                 i /= d; // using integer division
-                steps++;
-                
+                steps++;                
                 if (dict.get(i) == null)
                     dict.put(i, new Integer[] { 1, steps });
                 else {
@@ -46,8 +40,7 @@ public class Solution {
                     dict.get(i)[1]+=steps; // minimum number of operations
                 }
             }
-        }
-        
+        }        
         return minOps;
     }
     
